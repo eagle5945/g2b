@@ -28,30 +28,57 @@ mylog.info("프로세스 시작 : 입찰공고 - 용역 (WEB->XML)")
 
 
 inqryEndDt = datetime.now().strftime('%Y%m%d%H%M')
-inqryBgnDt = (datetime.now() - timedelta(days=10)).strftime('%Y%m%d%H%M')
-numOfRows = 2
+inqryBgnDt = (datetime.now() - timedelta(days=3)).strftime('%Y%m%d%H%M')
+numOfRows = 99
 pageNo = 1
 
 operation =  {"getBidPblancListInfoServc","getBidPblancListInfoThng","getBidPblancListInfoCnstwk"}
 
 for oper in operation :
 
-    url = "http://apis.data.go.kr/1230000/BidPublicInfoService/" + oper
+    while True : 
+        url = "http://apis.data.go.kr/1230000/BidPublicInfoService/" + oper
 
-    queryParams = '?' + urlencode({
-        quote_plus('ServiceKey') : 'QtXQ4yL+TKbBh/9HrW7bGeE7rKBbYuXdy6+YMlJ9/WO/ENDL6FZyoGmmt39B3xxT9fTeNkeNOa9QTpN9s+mjRw==',
-        quote_plus('numOfRows') : numOfRows,
-        quote_plus('pageNo') : pageNo,
-        quote_plus('inqryDiv') : 1,
-        quote_plus('inqryBgnDt'): inqryBgnDt,
-        quote_plus('inqryEndDt'): inqryEndDt,
-        quote_plus('type'): 'json'
-    })
+        queryParams = '?' + urlencode({
+            quote_plus('ServiceKey') : 'QtXQ4yL+TKbBh/9HrW7bGeE7rKBbYuXdy6+YMlJ9/WO/ENDL6FZyoGmmt39B3xxT9fTeNkeNOa9QTpN9s+mjRw==',
+            quote_plus('numOfRows') : numOfRows,
+            quote_plus('pageNo') : pageNo,
+            quote_plus('inqryDiv') : 1,
+            quote_plus('inqryBgnDt'): inqryBgnDt,
+            quote_plus('inqryEndDt'): inqryEndDt,
+            quote_plus('type'): 'json'
+        })
 
-    request = Request(url + queryParams)
-    request.get_method = lambda: 'GET'
-    response_body = urlopen(request).read().decode('utf-8')
+        request = Request(url + queryParams)
+        request.get_method = lambda: 'GET'
+        response_body = urlopen(request).read().decode('utf-8')
+
+        res_dict = json.loads(response_body)
+        item_list = res_dict['response']['body']['items']
+
+        for item in item_list :
+            # df = pd.DataFrame.from_dict(item)
+            # print(type(item))
+            # print(type(df))
+            print (item['bidNtceNo'])
+        
+
+        res_numOfRows = res_dict['response']['body']['numOfRows']
+        res_pageNo = res_dict['response']['body']['pageNo']
+        res_totalCount = res_dict['response']['body']['totalCount']    
+
+        print ("numOfRows = {}".format(numOfRows))
+        # print ("pageNo = {}".format(pageNo))
+        # print ("totalCount = {}".format(totalCount))
+
+        if (numOfRows > res_numOfRows):
+            pageNo += 1
+        else:
+            break
 
 
-    print (response_body)
+    
+
+
+
 
