@@ -18,7 +18,6 @@ CREATE TABLE `BidPublicInfoService` (
   PRIMARY KEY (`bidNtceNo`,`bidNtceOrd`) USING BTREE,
   KEY `oper` (`oper`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 
 DROP TABLE IF EXISTS `HrcspSsstndrdInfoService`;
@@ -36,13 +35,11 @@ CREATE TABLE `HrcspSsstndrdInfoService` (
   `rcptDt` char(19) DEFAULT NULL,
   `bfSpecRgstNo` char(10) DEFAULT NULL,
   `rgstDt` char(19) DEFAULT NULL,
-  `bidNtceNoList` char(500) DEFAULT NULL,
+  `bidNtceNoList` varchar(500) DEFAULT NULL,
   `bidNtceDtlUrl` varchar(512) DEFAULT NULL,
-
   PRIMARY KEY (`bfSpecRgstNo`) USING BTREE,
   KEY `oper` (`oper`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 
 DROP TABLE IF EXISTS `NotiHistoryHrcsp`;
@@ -66,5 +63,3 @@ CREATE TABLE `SearchWord` (
   `command` char(100) DEFAULT NULL,
   PRIMARY KEY (`user`,`command`)
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-
