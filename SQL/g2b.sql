@@ -60,5 +60,11 @@ CREATE TABLE `NotiHistoryBid` (
   PRIMARY KEY (`user`,`bidNtceNo`,`bidNtceOrd`)
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+DROP TABLE IF EXISTS `SearchWord`;
+CREATE TABLE `SearchWord` (
+  `user` char(10) NOT NULL,
+  `command` char(100) DEFAULT NULL,
+  PRIMARY KEY (`user`,`command`)
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
