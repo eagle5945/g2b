@@ -45,3 +45,23 @@
 [INFO       | BidPublicInfoService.py: 29		] 2020-12-25 10:17:24,636 > 프로세스 시작 : 입찰공고 - 용역 (WEB->XML)
 [INFO       | BidPublicInfoService.py: 27		] 2020-12-25 10:30:57,834 > 프로세스 시작 : 입찰공고 - 용역 (WEB->XML)
 [INFO       | BidPublicInfoService.py: 27		] 2020-12-25 10:33:33,889 > 프로세스 시작 : 입찰공고
+[INFO       | BidPublicInfoService.py: 27		] 2020-12-25 10:52:57,604 > 프로세스 시작 : 입찰공고
+[INFO       | BidPublicInfoService.py: 27		] 2020-12-25 11:00:09,501 > 프로세스 시작 : 입찰공고
+[INFO       | BidPublicInfoService.py: 27		] 2020-12-25 11:04:32,151 > 프로세스 시작 : 입찰공고
+[INFO       | BidPublicInfoService.py: 27		] 2020-12-25 11:04:50,847 > 프로세스 시작 : 입찰공고
+[INFO       | BidPublicInfoService.py: 27		] 2020-12-25 11:09:04,773 > 프로세스 시작 : 입찰공고
+[INFO       | BidPublicInfoService.py: 27		] 2020-12-25 11:11:50,791 > 프로세스 시작 : 입찰공고
+[INFO       | BidPublicInfoService.py: 27		] 2020-12-25 11:13:51,755 > 프로세스 시작 : 입찰공고
+[INFO       | BidPublicInfoService.py: 27		] 2020-12-25 11:14:39,725 > 프로세스 시작 : 입찰공고
+[INFO       | BidPublicInfoService.py: 27		] 2020-12-25 11:15:14,509 > 프로세스 시작 : 입찰공고
+[INFO       | BidPublicInfoService.py: 27		] 2020-12-25 11:15:36,559 > 프로세스 시작 : 입찰공고
+[INFO       | BidPublicInfoService.py: 27		] 2020-12-25 16:11:24,658 > 프로세스 시작 : 입찰공고
+[INFO       | BidPublicInfoService.py: 27		] 2020-12-25 16:11:55,144 > 프로세스 시작 : 입찰공고
+[INFO       | BidPublicInfoService.py: 27		] 2020-12-25 16:15:45,914 > 프로세스 시작 : 입찰공고
+[INFO       | BidPublicInfoService.py: 27		] 2020-12-25 16:16:16,581 > 프로세스 시작 : 입찰공고
+[INFO       | BidPublicInfoService.py: 27		] 2020-12-25 16:23:41,259 > 프로세스 시작 : 입찰공고
+[INFO       | HrcspSsstndrdInfoService.py: 25		] 2020-12-25 21:38:34,438 > 프로세스 시작 : 사전규격
+[INFO       | HrcspSsstndrdInfoService.py: 25		] 2020-12-25 21:39:57,102 > 프로세스 시작 : 사전규격
+[INFO       | HrcspSsstndrdInfoService.py: 25		] 2020-12-25 21:40:30,457 > 프로세스 시작 : 사전규격
+[INFO       | HrcspSsstndrdInfoService.py: 25		] 2020-12-25 21:42:34,666 > 프로세스 시작 : 사전규격
+[INFO       | HrcspSsstndrdInfoService.py: 25		] 2020-12-25 21:43:39,770 > 프로세스 시작 : 사전규격
