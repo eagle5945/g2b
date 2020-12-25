@@ -27,12 +27,14 @@ mylog.addHandler(fileHandler)
 mylog.info("프로세스 시작 : 입찰공고")
 
 inqryEndDt = datetime.now().strftime('%Y%m%d%H%M') # 종료일
-inqryBgnDt = (datetime.now() - timedelta(days=30)).strftime('%Y%m%d%H%M') # 시작일
+inqryBgnDt = (datetime.now() - timedelta(days=50)).strftime('%Y%m%d%H%M') # 시작일
 numOfRows = 999
-pageNo = 1
 
-operation =  {"getBidPblancListInfoServc","getBidPblancListInfoThng","getBidPblancListInfoCnstwk"}
+# operation =  {"getBidPblancListInfoServc","getBidPblancListInfoThng","getBidPblancListInfoCnstwk"}
+operation =  {"getBidPblancListInfoServc","getBidPblancListInfoThng"}
 for oper in operation :
+    pageNo = 1
+    print(f"============{oper}============")
     while True : 
         url = "http://apis.data.go.kr/1230000/BidPublicInfoService/" + oper
         queryParams = '?' + urlencode({
@@ -62,7 +64,11 @@ for oper in operation :
                 sql = f"REPLACE INTO BidPublicInfoService VALUES ('{oper}', "\
                     f"'{r.bidNtceNo}', '{r.bidNtceOrd}', '{r.bidNtceNm}', '{r.ntceInsttNm}', '{r.dminsttNm}','{asignBdgtAmt}',  "\
                     f"'{infoBizYn}', '{r.bidNtceDt}', '{r.bidBeginDt}', '{r.bidClseDt}', '{r.rgstDt}', '{r.bidNtceDtlUrl}' )"
-                curs.execute(sql)
+                try:
+                    curs.execute(sql)
+                except Exception as e:
+                    continue    # 특수문자 입력 오류가 발생해도 건너뛰고 입력
+
             conn.commit()
             
 
@@ -70,15 +76,16 @@ for oper in operation :
         res_pageNo = res_dict['response']['body']['pageNo']
         res_totalCount = res_dict['response']['body']['totalCount']    
 
-        # print (f"numOfRows = {numOfRows})
-        # print (f"pageNo = {numOfRows})
-        # print (f"totalCount = {numOfRows}")
+        print (f"numOfRows = {res_numOfRows}")
+        print (f"len(item_list) = {len(item_list)}")
+        print (f"pageNo = {res_pageNo}")
+        print (f"totalCount = {res_totalCount}")
 
-        if (numOfRows > res_numOfRows):
-            pageNo += 1
-        else:
+        if (len(item_list) < numOfRows):
             break
-
+        else:
+            pageNo += 1
+            
 conn.close()
     
 
