@@ -122,6 +122,7 @@ def putHrcspSsstndrdInfoService(update, context):
         bot.sendMessage(chat_id=user_id, text=strbuf, parse_mode='HTML', reply_markup=reply_markup)
     else:
         for idx in range(len(df)):
+            if df['asignBdgtAmt'][idx] == "": df['asignBdgtAmt'][idx]="0"
             strbuf = f"사전규격등록번호: {df['bfSpecRgstNo'][idx]} \n"\
                 f"품명(사업명): <a href ='{df['bidNtceDtlUrl'][idx]}'>{df['prdctClsfcNoNm'][idx]}</a>\n "\
                 f"실수요기관명: {df['rlDminsttNm'][idx]} \n" \
