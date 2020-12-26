@@ -25,7 +25,7 @@ mylog.addHandler(fileHandler)
 mylog.info("프로세스 시작 : 본공고")
 
 inqryEndDt = datetime.now().strftime('%Y%m%d%H%M') # 종료일
-inqryBgnDt = (datetime.now() - timedelta(days=50)).strftime('%Y%m%d%H%M') # 시작일
+inqryBgnDt = (datetime.now() - timedelta(days=5)).strftime('%Y%m%d%H%M') # 시작일
 numOfRows = 999
 
 operation =  {"getBidPblancListInfoServc","getBidPblancListInfoThng","getBidPblancListInfoCnstwk"}
