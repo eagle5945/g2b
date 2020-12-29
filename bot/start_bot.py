@@ -21,8 +21,7 @@ from telegram.ext import MessageHandler, CommandHandler, Filters
 MAX_MSG_LENGTH = 3072
 
 # 텔레그램 봇을 생성한다.
-# my_token = '291340689:AAG94M-vmn8W2Ca_dwVwRUcG2p-Nd6o5O1s'
-my_token = '1370311379:AAE6oqEY53CA76XQuFa28pj3aSD53bNBEaE'
+my_token = '291340689:AAG94M-vmn8W2Ca_dwVwRUcG2p-Nd6o5O1s'
 bot = telegram.Bot(token = my_token)
 
 # 텔레그램 updater 
@@ -42,12 +41,12 @@ mylog = logging.getLogger('MYLOG')
 mylog.setLevel(logging.INFO)
 formatter = logging.Formatter('[%(levelname)-10s | %(filename)s: %(lineno)s\t\t] %(asctime)s > %(message)s')
 file_max_bytes = 10 * 1024 * 1024     # file max size를 10MB로 설정
-fileHandler = logging.handlers.RotatingFileHandler(filename='../log/start_bot.log', maxBytes=file_max_bytes, backupCount=10)
+fileHandler = logging.handlers.RotatingFileHandler(filename='/home/ubuntu/g2b_bot/log/start_bot.log', maxBytes=file_max_bytes, backupCount=10)
 fileHandler.setFormatter(formatter)
 mylog.addHandler(fileHandler)
 
 # DB 커넥션 획득
-conn = pymysql.connect(host='localhost', user='root', password='kkc5945', db='g2b', charset='utf8')
+conn = pymysql.connect(host='localhost', user='root', password='root!@#', db='g2b', charset='utf8')
 
 
 def dbgout(message, user_id='65311700'):

@@ -12,14 +12,14 @@ from urllib.parse import urlencode, quote_plus, unquote
 
 # -*- coding: utf-8 -*-
 
-conn = pymysql.connect(host='localhost', user='root', password='kkc5945', db='g2b', charset='utf8')
+conn = pymysql.connect(host='localhost', user='root', password='root!@#', db='g2b', charset='utf8')
 
 """ Enable Logging """
 mylog = logging.getLogger('MYLOG')
 mylog.setLevel(logging.INFO)
 formatter = logging.Formatter('[%(levelname)-10s | %(filename)s: %(lineno)s\t\t] %(asctime)s > %(message)s')
 file_max_bytes = 10 * 1024 * 1024     # file max size를 10MB로 설정
-fileHandler = logging.handlers.RotatingFileHandler(filename='./log/getBidPblancListInfoServc.log', maxBytes=file_max_bytes, backupCount=10)
+fileHandler = logging.handlers.RotatingFileHandler(filename='/home/ubuntu/g2b_bot/log/HrcspSsstndrdInfoService.log', maxBytes=file_max_bytes, backupCount=10)
 fileHandler.setFormatter(formatter)
 mylog.addHandler(fileHandler)
 mylog.info("프로세스 시작 : 사전규격")
