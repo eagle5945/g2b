@@ -17,7 +17,6 @@ import telegram
 from telegram.ext import Updater
 from telegram.ext import MessageHandler, CommandHandler, Filters
 
-
 MAX_MSG_LENGTH = 3072
 
 # 텔레그램 봇을 생성한다.
