@@ -98,7 +98,7 @@ def pushBidPublicInfoService(user_id, list_command):
             strbuf += f"입찰공고번호: {df['bidNtceNo'][idx]}-{df['bidNtceOrd'][idx]} \n"\
                 f"입찰공고명: <a href ='{df['bidNtceDtlUrl'][idx]}'>{df['bidNtceNm'][idx]}</a>\n "\
                 f"수요기관명: {df['dminsttNm'][idx]} \n" \
-                f"배정예산금액: {int(df['asignBdgtAmt'][idx]):,d}원 \n"
+                f"배정예산금액: {int(df['asignBdgtAmt'][idx]):,d}원 \n\n"
             add_NotiHistoryBid(user_id, df['bidNtceNo'][idx], df['bidNtceOrd'][idx])
         bot.sendMessage(chat_id=user_id, text=strbuf, parse_mode='HTML')
 
@@ -135,7 +135,7 @@ def pushHrcspSsstndrdInfoService(user_id, list_command):
             strbuf += f"사전규격등록번호: {df['bfSpecRgstNo'][idx]} \n"\
                 f"품명(사업명): <a href ='{df['bidNtceDtlUrl'][idx]}'>{df['prdctClsfcNoNm'][idx]}</a>\n "\
                 f"실수요기관명: {df['rlDminsttNm'][idx]} \n" \
-                f"배정예산금액: {int(df['asignBdgtAmt'][idx]):,d}원 \n"
+                f"배정예산금액: {int(df['asignBdgtAmt'][idx]):,d}원 \n\n"
             add_NotiHistoryHrcsp(user_id, df['bfSpecRgstNo'][idx])                
         bot.sendMessage(chat_id=user_id, text=strbuf, parse_mode='HTML')
 
